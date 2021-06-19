@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>日曜日発注</title>
+</head>
+
+    
+<body>
+    <div align="right">こんにちは
+        <a href="order.html">戻る</a>
+    </div> 
+    <form action="#" name="form1"> 
+ <table id="table" border="1"  cellpadding="10">
+    <tr>
+      <th>商品名</th>
+      <th>実在庫</th>
+      <th>既発注</th>
+      <th>予想使用数</th>
+      <th>不足数</th>
+      <th>発注数</th>
+    </tr>
+    <tr>
+      <td>麺</td> 
+      <td><input type="text" name="num1"  onkeyup="num()"/></td>
+      <td><input type="text" name="num2"  onkeyup="num()"/></td>
+      <td><input type="number" name="num3" value="1152"></td>
+      <td><span  id="number">0</span></td>
+      <td><span  id="result">0</span></td>
+
+      <script language="JavaScript" type="text/javascript"> 
+        function num()
+        {
+        with(document.form1){
+        num1.value=num1.value.replace(/[^\d\.]/g,'');
+        numb1=num1.value;
+        numb1=parseFloat(numb1);
+        num2.value=num2.value.replace(/[^\d\.]/g,'');
+        numb2=num2.value;
+        numb2=parseFloat(numb2);
+        num3.value=num3.value.replace(/[^\d\.]/g,'');
+        numb3=num3.value;
+        numb3=parseFloat(numb3);
+        if (isNaN(numb1))
+        {numb1=0}
+        if (isNaN(numb2))
+        {numb2=0}
+        if (isNaN(numb3))
+        {numb3=0}
+        var n=String(numb3-numb1-numb2);
+        document.getElementById("number").innerHTML=n;
+        var r=Math.ceil(n/48)*48
+document.getElementById("result").innerHTML=r;
+
+        }
+        }
+    </script>
+</form>
+</body>
+</html>
